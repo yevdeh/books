@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
+"use client";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  title: "Books",
-  description: "Books editable list",
-};
+import { Provider } from "react-redux";
+import store from "./store";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ru">
-    <body>{children}</body>
+    <body>
+      <Provider store={store}>{children}</Provider>
+    </body>
   </html>
 );
 

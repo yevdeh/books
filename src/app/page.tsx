@@ -1,8 +1,11 @@
+import { Books } from "@/components/Books/Books";
 import { Section } from "@/components/Section/Section";
 
 const Home = () => (
   <main>
-    <Section></Section>
+    <Section>
+      <Books />
+    </Section>
   </main>
 );
 
