@@ -1,4 +1,4 @@
-const initialBooks = [
+export const initialBooks = [
   {
     author: "Anne Dar",
     genre: "Антиутопия",
@@ -44,4 +44,4 @@ const initialBooks = [
     title: "Пятьдесят на пятьдесят",
     year: "2020",
   },
-]
+];

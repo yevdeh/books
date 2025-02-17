@@ -1,10 +1,9 @@
-import { Section } from "@/components/Section/Section"
+import { Section } from "@/components/Section/Section";
 
 const Home = () => (
   <main>
-    <Section>
-    </Section>
+    <Section></Section>
   </main>
-)
+);
 
 export default Home;
