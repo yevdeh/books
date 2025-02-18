@@ -17,7 +17,7 @@ export const booksSlice = createSlice({
       state.push(action.payload);
     },
     bookDeleted: (state, action) => {
-      state = state.filter((book: IBook) => book.id !== action.payload);
+      return state.filter((book: IBook) => book.id !== action.payload);
     },
     bookEdited: (state, action) => {
       let editedBookIdInArray = null;

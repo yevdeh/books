@@ -1,6 +1,8 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-import { bookAdded, bookDeleted, bookEdited } from "./booksSlice";
+import { Button } from "../Button/Button";
+import { bookDeleted } from "./booksSlice";
+import { popupOpened } from "../Popup/popupSlice";
 import { IBook } from "./Books.data";
 import S from "./Books.module.css";
 
@@ -18,6 +20,8 @@ export const Books = () => {
           <th>Автор</th>
           <th>Страниц</th>
           <th>Ссылка на Litres</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +37,16 @@ export const Books = () => {
               <a href={book.litresURL} rel="noreferrer noopener" target="_blank">
                 Ссылка
               </a>
+            </td>
+            <td>
+              <Button color="yellow" onClick={() => dispatch(popupOpened())}>
+                Изменить
+              </Button>
+            </td>
+            <td>
+              <Button color="red" onClick={() => dispatch(bookDeleted(book.id))}>
+                Удалить
+              </Button>
             </td>
           </tr>
         ))}
