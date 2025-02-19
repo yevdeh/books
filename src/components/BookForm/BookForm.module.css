@@ -1,0 +1,17 @@
+.Form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Form input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+.Form label {
+  width: 100%;
+}
+.Form .LabelHalfWidth {
+  width: 49%;
+}

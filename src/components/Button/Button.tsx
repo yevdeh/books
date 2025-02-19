@@ -4,6 +4,9 @@ import S from "./Button.module.css";
 export const Button = ({ children, color, onClick }: PropsType) => {
   let modification = "";
   switch (color) {
+    case "green":
+      modification = S.ButtonGreen;
+      break;
     case "red":
       modification = S.ButtonRed;
       break;

@@ -1,14 +1,15 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../Button/Button";
-import { bookDeleted } from "./booksSlice";
+import { bookDeleted, bookFormOpenedToEdit } from "./booksSlice";
 import { popupOpened } from "../Popup/popupSlice";
 import { IBook } from "./Books.data";
 import S from "./Books.module.css";
 
 export const Books = () => {
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books.books);
+
   return (
     <table className={S.Table}>
       <thead>
@@ -19,7 +20,7 @@ export const Books = () => {
           <th>Жанр</th>
           <th>Автор</th>
           <th>Страниц</th>
-          <th>Ссылка на Litres</th>
+          <th>Адрес на Litres</th>
           <th></th>
           <th></th>
         </tr>
@@ -39,7 +40,13 @@ export const Books = () => {
               </a>
             </td>
             <td>
-              <Button color="yellow" onClick={() => dispatch(popupOpened())}>
+              <Button
+                color="yellow"
+                onClick={() => {
+                  dispatch(popupOpened());
+                  dispatch(bookFormOpenedToEdit(book.id));
+                }}
+              >
                 Изменить
               </Button>
             </td>
