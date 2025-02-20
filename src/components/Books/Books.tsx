@@ -1,14 +1,21 @@
 "use client";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { LocalStorageService } from "@/helpers/LocalStorageService";
 import { Button } from "../Button/Button";
-import { bookDeleted, bookFormOpenedToEdit } from "./booksSlice";
+import { bookDeleted, bookFormOpenedToEdit, initBooks } from "./booksSlice";
 import { popupOpened } from "../Popup/popupSlice";
-import { IBook } from "./Books.data";
+import { IBook, initialBooks } from "./Books.data";
 import S from "./Books.module.css";
 
 export const Books = () => {
   const dispatch = useAppDispatch();
   const books = useAppSelector((state) => state.books.books);
+
+  useEffect(() => {
+    const booksFromLS = LocalStorageService.get("books");
+    dispatch(initBooks(Array.isArray(booksFromLS) ? booksFromLS : initialBooks));
+  }, []);
 
   return (
     <table className={S.Table}>

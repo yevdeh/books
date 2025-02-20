@@ -4,11 +4,6 @@ export class LocalStorageService {
   }
 
   static get(key: string) {
-    const { data } = JSON.parse(window.localStorage.getItem(key) || "{}");
-    return data || null;
-  }
-
-  static remove(key: string) {
-    return window.localStorage.removeItem(key);
+    return JSON.parse(window.localStorage.getItem(key) || "{}");
   }
 }

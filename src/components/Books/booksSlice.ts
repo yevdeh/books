@@ -1,22 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LocalStorageService } from "@/helpers/LocalStorageService";
-import { IBook, initialBooks } from "./Books.data";
-
-const getInitialState = () => {
-  const booksFromLocalStorage = LocalStorageService.get("books");
-  return {
-    books: booksFromLocalStorage ? booksFromLocalStorage : initialBooks,
-    editedBookId: null,
-  };
-};
+import { IBook } from "./Books.data";
 
 export const booksSlice = createSlice({
   name: "books",
-  initialState: getInitialState(),
+  initialState: {
+    books: [],
+    editedBookId: null,
+  },
   reducers: {
     bookAdded: (state, action) => {
       const books = state.books;
-      const nextId = books[books.length - 1].id + 1;
+      const nextId = books.length === 0 ? 1 : books[books.length - 1].id + 1;
       return {
         books: books.concat({ ...action.payload, id: nextId }),
         editedBookId: null,
@@ -53,8 +47,13 @@ export const booksSlice = createSlice({
       ...state,
       editedBookId: action.payload,
     }),
+    initBooks: (state, action) => ({
+      ...state,
+      books: action.payload,
+    }),
   },
 });
 
-export const { bookAdded, bookDeleted, bookEdited, bookFormOpenedToAdd, bookFormOpenedToEdit } = booksSlice.actions;
+export const { bookAdded, bookDeleted, bookEdited, bookFormOpenedToAdd, bookFormOpenedToEdit, initBooks } =
+  booksSlice.actions;
 export default booksSlice.reducer;
