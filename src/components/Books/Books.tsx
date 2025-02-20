@@ -35,9 +35,11 @@ export const Books = () => {
             <td>{book.author}</td>
             <td>{book.pages}</td>
             <td>
-              <a href={book.litresURL} rel="noreferrer noopener" target="_blank">
-                Ссылка
-              </a>
+              {book.litresURL && (
+                <a href={book.litresURL} rel="noreferrer noopener" target="_blank">
+                  Ссылка
+                </a>
+              )}
             </td>
             <td>
               <Button
