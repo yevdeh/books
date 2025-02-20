@@ -4,7 +4,7 @@ import { IBook } from "./Books.model";
 export const booksSlice = createSlice({
   name: "books",
   initialState: {
-    books: [],
+    books: [] as IBook[],
     editedBookId: null,
   },
   reducers: {
