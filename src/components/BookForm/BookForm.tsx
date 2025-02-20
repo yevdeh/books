@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import S from "./BookForm.module.css";
 import { Button } from "../Button/Button";
 import { IBook } from "../Books/Books.data";
@@ -8,8 +8,8 @@ import { bookAdded, bookEdited } from "../Books/booksSlice";
 import { popupClosed } from "../Popup/popupSlice";
 
 export const BookForm = () => {
-  const { books, editedBookId } = useSelector((state) => state.books);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const { books, editedBookId } = useAppSelector((state) => state.books);
   let isBookAdded = true;
 
   let initialData = {

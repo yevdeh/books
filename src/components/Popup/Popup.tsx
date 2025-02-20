@@ -1,11 +1,11 @@
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { popupClosed } from "../Popup/popupSlice";
 import S from "./Popup.module.css";
 
 export const Popup = ({ children }: { children: React.ReactNode }) => {
-  const dispatch = useDispatch();
-  const isOpened = useSelector((state) => state.popup.isOpened);
+  const dispatch = useAppDispatch();
+  const isOpened = useAppSelector((state) => state.popup.isOpened);
 
   if (!isOpened) return null;
   return (

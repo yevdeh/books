@@ -1,5 +1,5 @@
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { Button } from "../Button/Button";
 import { bookDeleted, bookFormOpenedToEdit } from "./booksSlice";
 import { popupOpened } from "../Popup/popupSlice";
@@ -7,8 +7,8 @@ import { IBook } from "./Books.data";
 import S from "./Books.module.css";
 
 export const Books = () => {
-  const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
+  const dispatch = useAppDispatch();
+  const books = useAppSelector((state) => state.books.books);
 
   return (
     <table className={S.Table}>
