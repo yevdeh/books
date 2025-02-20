@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IBook } from "./Books.data";
+import { IBook } from "./Books.model";
 
 export const booksSlice = createSlice({
   name: "books",

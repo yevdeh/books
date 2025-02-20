@@ -5,7 +5,8 @@ import { LocalStorageService } from "@/helpers/LocalStorageService";
 import { Button } from "../Button/Button";
 import { bookDeleted, bookFormOpenedToEdit, initBooks } from "./booksSlice";
 import { popupOpened } from "../Popup/popupSlice";
-import { IBook, initialBooks } from "./Books.data";
+import { initialBooks } from "./Books.data";
+import { IBook } from "./Books.model";
 import S from "./Books.module.css";
 
 export const Books = () => {

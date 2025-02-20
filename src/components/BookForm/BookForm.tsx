@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import S from "./BookForm.module.css";
 import { Button } from "../Button/Button";
-import { IBook } from "../Books/Books.data";
+import { IBook } from "../Books/Books.model";
 import { bookAdded, bookEdited } from "../Books/booksSlice";
 import { popupClosed } from "../Popup/popupSlice";
 
